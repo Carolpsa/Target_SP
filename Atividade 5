@@ -1,0 +1,37 @@
+'''
+5) Escreva um programa que inverta os caracteres de um string.
+
+IMPORTANTE:
+a) Essa string pode ser informada através de qualquer entrada de sua preferência 
+ou pode ser previamente definida no código;
+b) Evite usar funções prontas, como, por exemplo, reverse;
+
+NÃO SE ESQUEÇA DE INSERIR O LINK DO SEU REPOSITÓRIO NO GITHUB COM O CÓDIGO FONTE
+QUE VOCÊ DESENVOLVEU
+
+'''
+
+def inverte_string():
+    palavra_invertida = ''
+    cont = 1
+    lista_letras = []
+    palavra = input('Digite uma palavra para inversão: ')
+
+    # palavra_invertida = palavra[::-1]
+    # print(palavra_invertida)
+    
+    for letra in palavra:
+        lista_letras.append(letra)
+        qtd = len(lista_letras)
+    
+    while cont <= qtd:
+        ultima_letra = lista_letras.pop()
+        
+        palavra_invertida += ultima_letra
+        
+        cont +=1
+     
+    print(palavra_invertida)
+
+
+inverte_string()
