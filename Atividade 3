@@ -1,0 +1,51 @@
+'''
+3) Dado um vetor que guarda o valor de faturamento diário de uma distribuidora, 
+faça um programa, na linguagem que desejar, que calcule e retorne:
+• O menor valor de faturamento ocorrido em um dia do mês;
+• O maior valor de faturamento ocorrido em um dia do mês;
+• Número de dias no mês em que o valor de faturamento diário foi superior
+à média mensal.
+
+IMPORTANTE:
+a) Usar o json ou xml disponível como fonte dos dados do faturamento mensal;
+b) Podem existir dias sem faturamento, como nos finais de semana e feriados. 
+Estes dias devem ser ignorados no cálculo da média;
+
+'''
+valores = {1: 400, 2: 100, 3: 200, 4: 300, 5: 700, 6: 0, 7:0, 8:900, 9: 100, 10: 1000}
+
+def faturamento_medio():
+    soma = 0
+    cont = 0
+    for dia, valor in valores.items():
+        soma += valor
+        if valor != 0:
+            cont += 1
+    media = soma / cont
+    return media
+
+def dias_faturamento_acima_media():
+    media = faturamento_medio()
+    cont = 0
+    
+    for dia, valor in valores.items():
+        if valor > media:
+            cont += 1
+    return cont
+
+def analise_faturamento():
+    lista_valores = []
+    for dia, valor in valores.items():
+        if valor != 0:
+            lista_valores.append(valor)
+    
+    valores_ordenados = sorted(lista_valores)
+    maior_valor = valores_ordenados[-1]
+    menor_valor = valores_ordenados[0]
+    
+    dias_acima_faturamento = dias_faturamento_acima_media()
+    
+    print(f'O maior valor faturado foi de R${maior_valor} e o menor foi de R${menor_valor}.')
+    print(f'Em {dias_acima_faturamento} dias do mês, o valor de faturamento foi maior do que a média mensal.')
+ 
+analise_faturamento()  
